@@ -1,0 +1,7 @@
+# Nmap Scan Commands
+
+# Network Discovery
+nmap -sP 192.168.0.0/24
+
+# Service and Version Detection
+nmap -sV -A 192.168.0.38

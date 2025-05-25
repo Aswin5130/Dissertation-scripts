@@ -1,0 +1,8 @@
+# Nessus Scan Summary
+
+Access via: https://localhost:8834/
+
+- Target: DVWA (192.168.0.38)
+- Detected OS: Linux Kernel 2.6 (Ubuntu 10.04)
+- Scan Duration: ~17 minutes
+- Findings: Multiple CVEs, outdated software, weak SSL settings

@@ -1,0 +1,9 @@
+# Burp Suite Manual Testing Notes
+
+- Target: http://192.168.0.38/dvwa
+- Tasks:
+  - Intercept login requests
+  - Inspect cookies, headers
+  - Check for SQLi, XSS in form inputs
+
+# Use with 'low' security level in DVWA

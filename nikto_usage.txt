@@ -1,0 +1,9 @@
+# Nikto Web Vulnerability Scan
+
+# Basic command
+nikto -h http://192.168.0.38
+
+# Sample findings:
+# - Missing X-Frame-Options header
+# - PHPSESSID without HttpOnly flag
+# - Apache 2.2.14 outdated
