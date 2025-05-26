@@ -27,4 +27,16 @@ CMD ["python3", "/opt/DeepExploit/DeepExploit.py"]
 
 docker build -t deepexploit .
 docker run -it --rm --network host deepexploit
+# Build the Docker image for DeepExploit
+sudo docker build -t deepexploit-image .
+RHOST: dvwa
+RPORT: 80
+Target: web
+Mode: autopwn
+# Run DeepExploit container
+sudo docker run -it --rm \
+  --name deepexploit \
+  --network pentest-net \
+  deepexploit-imag
+
 
