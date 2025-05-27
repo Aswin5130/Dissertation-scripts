@@ -6,3 +6,44 @@ Access via: https://localhost:8834/
 - Detected OS: Linux Kernel 2.6 (Ubuntu 10.04)
 - Scan Duration: ~17 minutes
 - Findings: Multiple CVEs, outdated software, weak SSL settings
+
+
+# Install Nessus on Kali Linux (if it's not installed already)
+sudo apt update
+sudo apt install nessus -y
+
+# Start the Nessus service
+sudo systemctl start nessusd
+
+# Enable Nessus to start automatically on boot
+sudo systemctl enable nessusd
+
+# Open the Nessus web interface by navigating to the following URL in a web browser:
+# https://localhost:8834
+
+# After accessing the web interface, log in to Nessus using the credentials you created.
+
+# Run a Nessus scan on the DVWA target (http://192.168.0.38)
+# To start a scan from the web interface:
+# 1. Select 'New Scan' in the Nessus interface.
+# 2. Choose a scan template, e.g., 'Basic Network Scan'.
+# 3. Enter the target IP (e.g., 192.168.0.38) in the 'Targets' field.
+# 4. Click 'Save' and then 'Launch' to start the scan.
+
+# Alternatively, you can use the Nessus CLI to run a scan, though it requires proper configuration.
+# Example CLI command (assuming you have created a scan):
+sudo /opt/nessus/sbin/nessuscli scan start --scan <scan_id>
+
+# Once the scan is completed, the Nessus interface will provide you with detailed results, including:
+# - Vulnerabilities found
+# - Misconfigurations
+# - Exploitable issues
+# - Outdated software
+
+# You can also export the scan results as an HTML or PDF report:
+# In the Nessus web interface, go to 'Scans', click on your scan, and select 'Export'.
+
+# Downloading the results in CLI can also be done using the following command (after scan completion):
+# Example:
+sudo /opt/nessus/sbin/nessuscli report download --report <report_id> --format html --output /path/to/report.html
+
