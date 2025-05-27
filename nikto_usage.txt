@@ -1,9 +1,43 @@
-# Nikto Web Vulnerability Scan
+# Install Nikto on Kali Linux (if not already installed)
+sudo apt update
+sudo apt install nikto -y
 
-# Basic command
+# Run a basic Nikto scan on the DVWA target (http://192.168.0.38)
 nikto -h http://192.168.0.38
 
-# Sample findings:
-# - Missing X-Frame-Options header
-# - PHPSESSID without HttpOnly flag
-# - Apache 2.2.14 outdated
+# Alternatively, you can run a Nikto scan on a specific port (default is 80)
+nikto -h http://192.168.0.38 -p 8080
+
+# Run a Nikto scan with output saved to a file (e.g., 'nikto-results.txt')
+nikto -h http://192.168.0.38 -o nikto-results.txt
+
+# Run Nikto with a custom wordlist (useful for fuzzing directories and files)
+nikto -h http://192.168.0.38 -w /usr/share/wordlists/dirb/common.txt
+
+# Run Nikto with SSL support (if scanning an HTTPS server)
+nikto -h https://192.168.0.38 -ssl
+
+# Use Nikto for a more specific scan on a particular file extension (e.g., '.php' files)
+nikto -h http://192.168.0.38 -x php
+
+# Run Nikto with a tuning option to filter specific tests (e.g., 'x' for cross-site scripting)
+nikto -h http://192.168.0.38 -Tuning x
+
+# Run a detailed scan with more verbose output (useful for debugging)
+nikto -h http://192.168.0.38 -v
+
+# Run a full scan and save output in HTML format for a more professional report
+nikto -h http://192.168.0.38 -o report.html -Format htm
+
+# Run a scan and ignore certain plugins or checks
+nikto -h http://192.168.0.38 -no_checks
+
+# Run a scan with a specific timeout setting (useful if scanning a slow server)
+nikto -h http://192.168.0.38 -timeout 30
+
+# Run Nikto with more than one target (if you have multiple systems to scan)
+nikto -h http://192.168.0.38,192.168.0.39,192.168.0.40
+
+# Run Nikto to scan for potential dangerous files on the server
+nikto -h http://192.168.0.38 -D
+
