@@ -1,7 +1,46 @@
-# Nmap Scan Commands
+# Install Nmap on Kali Linux (if it's not already installed)
+sudo apt update
+sudo apt install nmap -y
 
-# Network Discovery
-nmap -sP 192.168.0.0/24
+# Run a basic Nmap scan to detect open ports and services on the target (192.168.0.38)
+nmap 192.168.0.38
 
-# Service and Version Detection
-nmap -sV -A 192.168.0.38
+# Run an Nmap scan with service version detection (-sV) to identify versions of running services
+nmap -sV 192.168.0.38
+
+# Run an Nmap scan to detect the OS version of the target system (-O)
+nmap -O 192.168.0.38
+
+# Run an Nmap scan with aggressive mode enabled (-A) to detect OS, services, and versions
+nmap -A 192.168.0.38
+
+# Scan for open ports and services using a specific port range (e.g., port 80 to 443)
+nmap -p 80-443 192.168.0.38
+
+# Run an Nmap scan to detect the operating system and services with more verbosity (-v)
+nmap -O -sV -v 192.168.0.38
+
+# Run a scan to check for specific vulnerability (e.g., SSH, HTTP)
+nmap --script=ssh-vuln* 192.168.0.38
+
+# Perform a simple ping scan to check if the target is online (without scanning ports)
+nmap -sn 192.168.0.38
+
+# Run an Nmap scan to detect open ports and services with output saved to a file
+nmap -oN nmap-results.txt 192.168.0.38
+
+# Run an Nmap scan with a specific scan type (e.g., SYN scan)
+nmap -sS 192.168.0.38
+
+# Run an Nmap scan to detect all open ports and services with no DNS resolution
+nmap -n 192.168.0.38
+
+# Perform an Nmap scan with a script to identify potential vulnerabilities on a web server
+nmap --script=http-vuln* 192.168.0.38
+
+# Run an Nmap scan to detect open ports and services on multiple targets
+nmap 192.168.0.38,192.168.0.39
+
+# Run an Nmap scan with a specific timeout to adjust for slow targets
+nmap --host-timeout 30m 192.168.0.38
+
